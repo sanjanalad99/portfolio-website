@@ -5,22 +5,23 @@ import { Resend } from "resend";
 import { validateString, getErrorMessage } from "@/lib/utils";
 import ContactFormEmail from "@/email/contact-form-email";
 
+
+if (!process.env.RESEND_API_KEY) {
+  throw new Error('Missing RESEND_API_KEY environment variable');
+}
+// Initialize the Resend client with the API key from the environment variable
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export const sendEmail = async (formData: FormData) => {
+export const sendEmail = async (formData) => {
   const senderEmail = formData.get("senderEmail");
   const message = formData.get("message");
 
-  // simple server-side validation
+  // Simple server-side validation
   if (!validateString(senderEmail, 500)) {
-    return {
-      error: "Invalid sender email",
-    };
+    return { error: "Invalid sender email" };
   }
   if (!validateString(message, 5000)) {
-    return {
-      error: "Invalid message",
-    };
+    return { error: "Invalid message" };
   }
 
   let data;
@@ -31,17 +32,13 @@ export const sendEmail = async (formData: FormData) => {
       subject: "Message from contact form",
       reply_to: senderEmail,
       react: React.createElement(ContactFormEmail, {
-        message: message,
-        senderEmail: senderEmail,
+        message,
+        senderEmail,
       }),
     });
-  } catch (error: unknown) {
-    return {
-      error: getErrorMessage(error),
-    };
+  } catch (error) {
+    return { error: getErrorMessage(error) };
   }
 
-  return {
-    data,
-  };
+  return { data };
 };
