@@ -21,7 +21,7 @@ export default function About() {
       <p className="mb-3">
         After graduating with a master&apos;s degree in{" "}
         <span className="font-medium">Computer Engineering</span>, I decided to pursue my
-        passion for building websites and data prediction models. I started looking for full-time opportunities as {" "}
+        passion for building websites and data prediction models. I started looking for full-time opportunities as{" "}
         <span className="font-medium">front-end web developer</span>.{" "}
         <span className="italic">My favorite part of programming</span> is the
         problem-solving aspect. I <span className="underline">love</span> the
