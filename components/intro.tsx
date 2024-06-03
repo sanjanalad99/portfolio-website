@@ -33,11 +33,11 @@ export default function Intro() {
             <Image
               src="/images/1716413682176.jpg"
               alt="Sanjana portrait"
-              width="192"
-              height="192"
-              quality="95"
+              width="700"
+              height="700"
+              quality="100"
               priority={true}
-              className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+              className="h-72 w-72 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
             />
           </motion.div>
 
@@ -62,10 +62,9 @@ export default function Intro() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="font-bold">Hello, I&apos;m Sanjana.</span> I&apos;m a{" "}
-        <span className="font-bold">fresh graduate with a Master&apos;s Degree in Computer Engineering.</span> I enjoy
-        building <span className="italic">websites and building prediction models with AI and ML using Python.</span> My focus is building solutions with{" "}
-        <span className="underline">Python</span>.
+        <span className="font-bold">Hello, I'm Sanjana.</span> I'm a{" "}
+        <span className="font- medium">fresh graduate with a Master's Degree in Computer Engineering.</span> I am looking for full-time roles in the Tech industry. I am proficient in languages like - {" "}
+        Python, Javascript, HTML/CSS, SQL and C++.
       </motion.h1>
 
       <motion.div
